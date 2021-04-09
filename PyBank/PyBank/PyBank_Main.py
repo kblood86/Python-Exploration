@@ -45,7 +45,8 @@ with open(csvpath, 'r') as csvfile:
     totalPL = round(totalPL)
     print(f"Total: ${totalPL}")
     print(sum_profit)
-    print(sum_loss)
+    #print(sum_loss)
+                
 
 #reopen file
 with open(csvpath, 'r') as csvfile:
@@ -61,15 +62,15 @@ with open(csvpath, 'r') as csvfile:
 
 #print min and max, both profit/loss as well as month and year
 
-    print(f'Greatest Increase in profit: {max_revenue_row}')
-    print(f'Greatest Decrease in profit: {in_revenue_row}')
+    print(f'Greatest Increase in Profits: {max_revenue_row}')
+    print(f'Greatest Decrease in Profits: {in_revenue_row}')
 
 
 # Specify the file to write to
-budget_output = os.path.join("..", "Analysis", "Analysis.txt")
+#budget_output = os.path.join("..", "Analysis", "Analysis.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(budget_output, 'w', newline='') as text_file:
-    budget_output.write("row_count")
+#with open(budget_output, 'w', newline='') as text_file:
+    #budget_output.write("row_count")
 
-    budget_output.close()
+    #budget_output.close()
