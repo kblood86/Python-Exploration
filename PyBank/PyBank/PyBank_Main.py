@@ -67,10 +67,11 @@ with open(csvpath, 'r') as csvfile:
 
 
 # Specify the file to write to
-#budget_output = os.path.join("..", "Analysis", "Analysis.txt")
+budget_output = os.path.join("..", "Analysis", "Analysis.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-#with open(budget_output, 'w', newline='') as text_file:
-    #budget_output.write("row_count")
+with open(budget_output, 'w') as x_file:
+    x_file.write("Financial Analysis")
+    
 
     #budget_output.close()
