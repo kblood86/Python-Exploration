@@ -88,7 +88,7 @@ with open(csvpath, 'r') as csvfile:
 
     if li_percent > khan_percent and li_percent > correy_percent and li_percent > otoole_percent:
         winner = "Li"
-        print(f"Li Wins")
+        print(f"Li Wins!")
 
     if correy_percent > li_percent and correy_percent > khan_percent and correy_percent > otoole_percent:
         winner = "Correy"
@@ -104,5 +104,16 @@ with open(csvpath, 'r') as csvfile:
 election_output = os.path.join("..", "Analysis", "Poll_Analysis.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(election_output, 'w') as x_file:
-    x_file.write("Election Results")
+with open(election_output, 'w', newline='') as x_file:
+    x_file.write("Election Results\n"),
+    x_file.write("--------------------------------------\n"),
+    x_file.write(f'Total Votes: {row_count}\n'),
+    x_file.write("--------------------------------------"),
+    
+    x_file.write(f'Kahn: {khan_percent}% ({Khan_votes})\n'),
+    x_file.write(f'Li: {li_percent}% ({Li_votes})\n'),
+    x_file.write(f'Correy: {correy_percent}% ({Correy_votes})\n'),
+    x_file.write(f"O'Tooley: {otoole_percent}% ({otoole_votes})\n"),
+    x_file.write(f'--------------------------------------\n'),
+
+    x_file.write(winner)
