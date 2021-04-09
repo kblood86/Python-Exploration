@@ -47,14 +47,32 @@ with open(csvpath, 'r') as csvfile:
     print(sum_profit)
     print(sum_loss)
 
+#reopen file
 with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
+#skip header
     csv_header = next(csvreader)
 
+#scan rows and find min and max values in row 1 - profits/losses
     rows = list(csvreader) 
     max_revenue_row = max(rows, key=lambda row: int(row[1]))
     in_revenue_row = min(rows, key=lambda row: int(row[1]))
 
+#print min and max, both profit/loss as well as month and year
+
     print(f'Greatest Increase in profit: {max_revenue_row}')
     print(f'Greatest Decrease in profit: {in_revenue_row}')
+
+
+# Specify the file to write to
+output_path = os.path.join("..", "Analysis", "Analysis.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as txtfile:
+
+    # Initialize csv.writer
+    txtwriter = txt.writer(txtfile, delimiter=',')
+
+    txtwriter.writerow("Financial Analysis")
+
