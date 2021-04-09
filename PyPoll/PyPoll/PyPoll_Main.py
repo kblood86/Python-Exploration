@@ -100,3 +100,9 @@ with open(csvpath, 'r') as csvfile:
 
 
 #Print results to text file 
+
+election_output = os.path.join("..", "Analysis", "Poll_Analysis.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(election_output, 'w') as x_file:
+    x_file.write("Election Results")
