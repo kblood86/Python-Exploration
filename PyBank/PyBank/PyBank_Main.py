@@ -57,13 +57,13 @@ with open(csvpath, 'r') as csvfile:
 
 #scan rows and find min and max values in row 1 - profits/losses
     rows = list(csvreader) 
-    max_revenue_row = max(rows, key=lambda row: int(row[1]))
-    in_revenue_row = min(rows, key=lambda row: int(row[1]))
+    max_revenue= max(rows, key=lambda row: int(row[1]))
+    min_revenue= min(rows, key=lambda row: int(row[1]))
 
 #print min and max, both profit/loss as well as month and year
 
-    print(f'Greatest Increase in Profits: {max_revenue_row}')
-    print(f'Greatest Decrease in Profits: {in_revenue_row}')
+    print(f'Greatest Increase in Profits: {max_revenue}')
+    print(f'Greatest Decrease in Profits: {min_revenue}')
 
 
 # Specify the file to write to
@@ -71,7 +71,11 @@ budget_output = os.path.join("..", "Analysis", "Analysis.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(budget_output, 'w') as x_file:
-    x_file.write("Financial Analysis")
+    x_file.write("Financial Analysis\n"),
+    x_file.write("--------------------------------------\n"),
+    x_file.write(f'Total Months: {row_count}\n'),
+    x_file.write(f'Total: ${totalPL}\n'),
+    x_file.write(f'Average Change: \n'),
+    x_file.write(f'Greatest Increase in Profits: {max_revenue}\n'),
+    x_file.write(f'Greatest Decrease in Profits: {min_revenue}\n'),
     
-
-    #budget_output.close()
