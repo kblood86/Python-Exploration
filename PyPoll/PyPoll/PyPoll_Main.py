@@ -68,6 +68,18 @@ with open(csvpath, 'r') as csvfile:
     correy_percent = round(correy_percent,3)
     otoole_percent = round(otoole_percent,3)
 
+    if khan_percent > li_percent and khan_percent > correy_percent and khan_percent > otoole_percent:
+        print(f"Khan Wins!")
+
+    if li_percent > khan_percent and li_percent > correy_percent and li_percent > otoole_percent:
+        print(f"Li Wins")
+
+    if correy_percent > li_percent and correy_percent > khan_percent and correy_percent > otoole_percent:
+        print(f"Correy Wins!")
+
+    if otoole_percent > li_percent and otoole_percent > correy_percent and otoole_percent > khan_percent:
+        print(f"O'Tooley Wins!")
+
     #output data - candidate, percentage and votes
 
     print(f'--------------------------------------')
