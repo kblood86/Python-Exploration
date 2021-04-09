@@ -18,7 +18,7 @@ with open(csvpath, 'r') as csvfile:
    
    #print title
     print(f'Election Results')
-    print(f'------------------------------')
+    print(f'--------------------------------------')
 
     # Read each row of data after the header and get row count - total votes
     row_count =sum(1 for row in csvreader)
@@ -68,6 +68,20 @@ with open(csvpath, 'r') as csvfile:
     correy_percent = round(correy_percent,3)
     otoole_percent = round(otoole_percent,3)
 
+    
+
+    #output data - candidate, percentage and votes
+
+    print(f'--------------------------------------')
+    print(f'Kahn: {khan_percent}% ({Khan_votes})')
+    print(f'Li: {li_percent}% ({Li_votes})')
+    print(f'Correy: {correy_percent}% ({Correy_votes})')
+    print(f"O'Tooley: {otoole_percent}% ({otoole_votes})")
+    print(f'--------------------------------------')
+
+
+ #The winner of the election based on popular vote.
+
     if khan_percent > li_percent and khan_percent > correy_percent and khan_percent > otoole_percent:
         print(f"Khan Wins!")
 
@@ -79,14 +93,3 @@ with open(csvpath, 'r') as csvfile:
 
     if otoole_percent > li_percent and otoole_percent > correy_percent and otoole_percent > khan_percent:
         print(f"O'Tooley Wins!")
-
-    #output data - candidate, percentage and votes
-
-    print(f'--------------------------------------')
-    print(f'Kahn: {khan_percent}% ({Khan_votes})')
-    print(f'Li: {li_percent}% ({Li_votes})')
-    print(f'Correy: {correy_percent}% ({Correy_votes})')
-    print(f"O'Tooley: {otoole_percent}% ({otoole_votes})")
-
-
- #The winner of the election based on popular vote.
