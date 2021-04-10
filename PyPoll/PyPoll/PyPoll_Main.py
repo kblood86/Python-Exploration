@@ -116,4 +116,4 @@ with open(election_output, 'w', newline='') as x_file:
     x_file.write(f"O'Tooley: {otoole_percent}% ({otoole_votes})\n"),
     x_file.write(f'--------------------------------------\n'),
 
-    x_file.write(f'{winner} wins!')
+    x_file.write(f'Winner: {winner}')
