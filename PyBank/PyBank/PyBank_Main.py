@@ -68,6 +68,7 @@ with open(csvpath, 'r') as csvfile:
     csv_header = next(csvreader)
 
 #scan rows and find min and max values in row 1 - profits/losses
+#zero index
     rows = list(csvreader) 
     max_revenue= max(rows, key=lambda row: int(row[1]))
     min_revenue= min(rows, key=lambda row: int(row[1]))
