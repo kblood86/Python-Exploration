@@ -1,2 +1,6 @@
 # Python_Challenge
 Analysis of banking and polling data
+
+Banking Anaylsis looks at profit gains and losses over several years. Outputs to terminal and txt file the time frame, net total, average change, and greatest increase and decrease in profits.
+
+Polling data calculates how many votes were cast. Then it further breaks it down to how many votes each canidate won and what percentage that amount is before declaring the winner.
