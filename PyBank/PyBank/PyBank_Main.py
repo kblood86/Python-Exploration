@@ -1,3 +1,4 @@
+#Dependencies
 import os
 import csv
 
@@ -32,7 +33,8 @@ with open(csvpath, 'r') as csvfile:
     totalPL = 0
     profit = 0
 
-#for data in csv, if greater than zero than add to profit, if less than zero add to loss
+#for data in csv, if greater than zero than add to profit
+# if less than zero add to loss
 #total is profits plus losses
 
     for row in csvreader:
@@ -44,8 +46,18 @@ with open(csvpath, 'r') as csvfile:
     totalPL = sum_profit + sum_loss
     totalPL = round(totalPL)
     print(f"Total: ${totalPL}")
-    print(sum_profit)
+    #print(sum_profit)
     #print(sum_loss)
+
+    #find average of profits and average of losses
+    #find average change
+    #print to terminal
+    
+    increase_average = (sum_profit/row_count)
+    decrease_average = (sum_loss/row_count)
+    average_change = ((increase_average+decrease_average)/row_count)
+    average_change = round(average_change,2)
+    print(f'Average Change: ${average_change}')
                 
 
 #reopen file
@@ -75,7 +87,7 @@ with open(budget_output, 'w') as x_file:
     x_file.write("--------------------------------------\n"),
     x_file.write(f'Total Months: {row_count}\n'),
     x_file.write(f'Total: ${totalPL}\n'),
-    x_file.write(f'Average Change: \n'),
+    x_file.write(f'Average Change: ${average_change}\n'),
     x_file.write(f'Greatest Increase in Profits: {max_revenue}\n'),
     x_file.write(f'Greatest Decrease in Profits: {min_revenue}\n'),
     
