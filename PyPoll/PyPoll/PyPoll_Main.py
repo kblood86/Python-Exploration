@@ -2,9 +2,10 @@
 import os
 import csv
 
+#open csv file in resource folder
 csvpath = os.path.join('..', 'Resources', 'election_data.csv')
 
-
+#open file
 with open(csvpath, 'r') as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
@@ -13,6 +14,7 @@ with open(csvpath, 'r') as csvfile:
     #print(csv_reader)
 
     # Read the header row first 
+    #skip header row
     csv_header = next(csvreader)
     #print(f"CSV Header: {csv_header}")
 
@@ -21,13 +23,16 @@ with open(csvpath, 'r') as csvfile:
     print(f'Election Results')
     print(f'--------------------------------------')
 
-    # Read each row of data after the header and get row count - total votes
+    # Read each row of data after the header and get row count
+    # This equals total votes
     row_count =sum(1 for row in csvreader)
     print(f'Total Votes: {row_count}')
 
+#reopen file
 with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
+#skip header
     csv_header = next(csvreader)
      
    #define variables
@@ -47,6 +52,7 @@ with open(csvpath, 'r') as csvfile:
         elif votes == "Correy":
             Correy_votes = Correy_votes + 1
         
+    #leftover votes belong to O'Tooley
     otoole_votes = (row_count-(Khan_votes +Li_votes+Correy_votes))
     
     #check vote output
@@ -56,7 +62,7 @@ with open(csvpath, 'r') as csvfile:
     #print(otoole_votes)
 
     
-    #find percentage of total votes for each canidate
+    #find percentage of total votes for each candidate
     khan_percent = (Khan_votes/row_count)*100
     li_percent = (Li_votes/row_count)*100
     correy_percent = (Correy_votes/row_count)*100
@@ -82,6 +88,7 @@ with open(csvpath, 'r') as csvfile:
 
 
  #The winner of the election based on popular vote.
+ #print results
 
     if khan_percent > li_percent and khan_percent > correy_percent and khan_percent > otoole_percent:
         winner = "Khan"
